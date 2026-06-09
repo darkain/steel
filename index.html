@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>West Steel From Old People — Premium Metallic Building Blocks</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto+Mono:wght@400;700&display=swap');
+
+        :root {
+            --steel-dark: #1a1a2e;
+            --steel-medium: #2d2d44;
+            --steel-light: #4a4a6a;
+            --steel-highlight: #7a7a9a;
+            --chrome: #c0c0d0;
+            --chrome-bright: #e8e8f0;
+            --rust: #b7410e;
+            --rust-light: #d4652a;
+            --warning-yellow: #f0c040;
+            --danger-red: #cc3333;
+            --lego-red: #d32f2f;
+            --lego-yellow: #ffca28;
+            --lego-blue: #1976d2;
+            --lego-green: #388e3c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background: var(--steel-dark);
+            color: var(--chrome);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Metallic background texture */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255,255,255,0.01) 2px,
+                    rgba(255,255,255,0.01) 4px
+                ),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255,255,255,0.01) 2px,
+                    rgba(255,255,255,0.01) 4px
+                ),
+                linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 30%, #2d2d44 100%);
+            z-index: -1;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: linear-gradient(180deg, #0d0d15 0%, var(--steel-dark) 100%);
+            border-bottom: 4px solid var(--rust);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--chrome-bright) 0%, var(--chrome) 30%, var(--steel-light) 70%, var(--chrome) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--steel-dark);
+            position: relative;
+            box-shadow: 
+                inset 0 2px 4px rgba(255,255,255,0.4),
+                inset 0 -2px 4px rgba(0,0,0,0.3),
+                0 2px 8px rgba(0,0,0,0.4);
+        }
+
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 50%;
+            bottom: 50%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.6), transparent);
+            border-radius: 6px 2px 2px 6px;
+        }
+
+        .logo-text {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            background: linear-gradient(180deg, var(--chrome-bright) 0%, var(--chrome) 50%, var(--steel-highlight) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: none;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+            line-height: 1.1;
+        }
+
+        .logo-text small {
+            display: block;
+            font-size: 0.45em;
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 400;
+            -webkit-text-fill-color: var(--rust-light);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        nav {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--chrome);
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 2px solid var(--steel-light);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        nav a:hover::before {
+            left: 100%;
+        }
+
+        nav a:hover {
+            border-color: var(--rust);
+            color: var(--chrome-bright);
+            box-shadow: 0 0 15px rgba(183, 65, 14, 0.3);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: 
+                radial-gradient(ellipse at center top, rgba(183,65,14,0.15) 0%, transparent 60%),
+                linear-gradient(180deg, var(--steel-dark) 0%, var(--steel-medium) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-conic-gradient(
+                from 0deg,
+                transparent 0deg 8deg,
+                rgba(255,255,255,0.008) 8deg 10deg
+            );
+            animation: rotateBg 120s linear infinite;
+        }
+
+        @keyframes rotateBg {
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(180deg, #ffffff 0%, var(--chrome) 40%, var(--steel-highlight) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.6));
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(180deg, var(--warning-yellow) 0%, var(--rust-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: var(--chrome);
+            opacity: 0.85;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #000;
+            background: linear-gradient(180deg, var(--warning-yellow) 0%, var(--rust) 100%);
+            padding: 15px 40px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 
+                inset 0 2px 0 rgba(255,255,255,0.3),
+                inset 0 -2px 0 rgba(0,0,0,0.2),
+                0 4px 15px rgba(0,0,0,0.4);
+            transition: all 0.3s ease;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                inset 0 2px 0 rgba(255,255,255,0.3),
+                inset 0 -2px 0 rgba(0,0,0,0.2),
+                0 6px 25px rgba(183,65,14,0.4);
+        }
+
+        /* ===== WARNING BANNER ===== */
+        .warning-banner {
+            background: repeating-linear-gradient(
+                45deg,
+                var(--warning-yellow),
+                var(--warning-yellow) 10px,
+                #000 10px,
+                #000 20px
+            );
+            padding: 3px;
+        }
+
+        .warning-banner-inner {
+            background: #000;
+            padding: 12px 20px;
+            text-align: center;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--warning-yellow);
+        }
+
+        /* ===== MARQUEE ===== */
+        .marquee-container {
+            background: var(--steel-medium);
+            border-top: 2px solid var(--steel-light);
+            border-bottom: 2px solid var(--steel-light);
+            overflow: hidden;
+            padding: 10px 0;
+        }
+
+        .marquee {
+            display: flex;
+            animation: marquee 30s linear infinite;
+            white-space: nowrap;
+        }
+
+        .marquee span {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--steel-highlight);
+            padding: 0 30px;
+        }
+
+        .marquee span::after {
+            content: '⚙';
+            margin-left: 30px;
+            opacity: 0.5;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 10px;
+            background: linear-gradient(180deg, var(--chrome-bright), var(--steel-highlight));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--steel-highlight);
+            margin-bottom: 40px;
+            font-size: 0.9rem;
+        }
+
+        .section-divider {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--rust), var(--rust-light));
+            margin: 15px auto 20px;
+            border-radius: 2px;
+        }
+
+        /* ===== PRODUCTS ===== */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: linear-gradient(180deg, var(--steel-medium) 0%, #1e1e32 100%);
+            border: 2px solid var(--steel-light);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--rust), var(--warning-yellow), var(--rust));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--rust);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4), 0 0 20px rgba(183,65,14,0.15);
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        .product-image {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 50%, rgba(0,0,0,0.1) 100%);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            border-radius: 3px;
+            z-index: 1;
+        }
+
+        .badge-sale {
+            background: var(--danger-red);
+            color: #fff;
+        }
+
+        .badge-new {
+            background: var(--lego-green);
+            color: #fff;
+        }
+
+        .badge-hot {
+            background: var(--rust);
+            color: #fff;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--chrome-bright);
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            font-size: 0.85rem;
+            color: var(--steel-highlight);
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .price {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--warning-yellow);
+        }
+
+        .price .original {
+            font-size: 0.85rem;
+            color: var(--steel-highlight);
+            text-decoration: line-through;
+            margin-left: 8px;
+            font-weight: 400;
+        }
+
+        .btn-add {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #000;
+            background: linear-gradient(180deg, var(--warning-yellow) 0%, var(--rust) 100%);
+            border: none;
+            padding: 8px 18px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
+        }
+
+        .btn-add:hover {
+            box-shadow: 
+                inset 0 1px 0 rgba(255,255,255,0.3),
+                0 0 10px rgba(183,65,14,0.4);
+            transform: scale(1.05);
+        }
+
+        /* ===== FEATURES ===== */
+        .features {
+            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, transparent 100%);
+            border-top: 2px solid var(--steel-light);
+            border-bottom: 2px solid var(--steel-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .feature {
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .feature h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--chrome-bright);
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+            font-size: 0.8rem;
+            color: var(--steel-highlight);
+            line-height: 1.5;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .testimonial {
+            background: var(--steel-medium);
+            border: 2px solid var(--steel-light);
+            border-radius: 8px;
+            padding: 25px;
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-family: 'Oswald', sans-serif;
+            font-size: 4rem;
+            color: var(--rust);
+            position: absolute;
+            top: -5px;
+            left: 15px;
+            opacity: 0.5;
+            line-height: 1;
+        }
+
+        .testimonial p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--chrome);
+            margin-bottom: 15px;
+            padding-top: 20px;
+        }
+
+        .testimonial-author {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: var(--rust-light);
+        }
+
+        .testimonial-verified {
+            font-size: 0.75rem;
+            color: var(--lego-green);
+        }
+
+        /* ===== NEWSLETTER ===== */
+        .newsletter {
+            background: linear-gradient(180deg, var(--steel-medium) 0%, var(--steel-dark) 100%);
+            border: 2px solid var(--steel-light);
+            border-radius: 12px;
+            padding: 50px 30px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--rust), transparent);
+        }
+
+        .newsletter h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--chrome-bright);
+            margin-bottom: 10px;
+        }
+
+        .newsletter p {
+            color: var(--steel-highlight);
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.9rem;
+            padding: 12px 16px;
+            background: var(--steel-dark);
+            border: 2px solid var(--steel-light);
+            border-radius: 4px;
+            color: var(--chrome);
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .newsletter-form input:focus {
+            border-color: var(--rust);
+        }
+
+        .newsletter-form input::placeholder {
+            color: var(--steel-highlight);
+            opacity: 0.6;
+        }
+
+        .newsletter-form button {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #000;
+            background: linear-gradient(180deg, var(--warning-yellow) 0%, var(--rust) 100%);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .newsletter-form button:hover {
+            box-shadow: 0 0 15px rgba(183,65,14,0.4);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0a0a12;
+            border-top: 3px solid var(--rust);
+            padding: 40px 20px 20px;
+            margin-top: 0;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--chrome-bright);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer-col a {
+            display: block;
+            color: var(--steel-highlight);
+            text-decoration: none;
+            font-size: 0.85rem;
+            padding: 4px 0;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--rust-light);
+        }
+
+        .footer-col p {
+            font-size: 0.8rem;
+            color: var(--steel-highlight);
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 20px;
+            border-top: 1px solid var(--steel-light);
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--steel-light);
+        }
+
+        .footer-bottom .disclaimer {
+            margin-top: 10px;
+            font-size: 0.65rem;
+            color: var(--steel-light);
+            opacity: 0.6;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== CART ICON ===== */
+        .cart-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--rust) 0%, var(--steel-light) 100%);
+            border: 2px solid var(--rust-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+        }
+
+        .cart-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(183,65,14,0.4);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--warning-yellow);
+            color: #000;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ===== TOAST ===== */
+        .toast {
+            position: fixed;
+            bottom: 100px;
+            right: 25px;
+            background: var(--steel-medium);
+            border: 2px solid var(--lego-green);
+            border-radius: 8px;
+            padding: 15px 25px;
+            color: var(--chrome-bright);
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.85rem;
+            z-index: 10000;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+            pointer-events: none;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RIVET DECORATIONS ===== */
+        .rivets {
+            position: relative;
+        }
+
+        .rivet {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle at 35% 35%, var(--chrome-bright), var(--steel-light));
+            border-radius: 50%;
+            box-shadow: 
+                inset 0 1px 2px rgba(255,255,255,0.5),
+                0 1px 3px rgba(0,0,0,0.4);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .logo-text {
+                font-size: 1.2rem;
+            }
+
+            .header-inner {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .section {
+                padding: 40px 15px;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .shimmer-text {
+            background: linear-gradient(
+                90deg,
+                var(--chrome) 0%,
+                var(--chrome-bright) 25%,
+                var(--chrome) 50%,
+                var(--chrome-bright) 75%,
+                var(--chrome) 100%
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
+
+        /* Sparkle effect for products */
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: var(--chrome-bright);
+            border-radius: 50%;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <div class="logo-icon">🔩</div>
+                <div class="logo-text">
+                    West Steel<br>From Old People
+                    <small>Premium Metallic Blocks Since 2024</small>
+                </div>
+            </a>
+            <nav>
+                <a href="#products">Products</a>
+                <a href="#about">About</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>We <span class="highlight">Steel</span> From<br>Old People</h1>
+            <p>Premium industrial-grade metallic building elements for the discerning adult builder. Our rust-resistant, high-tensility parts are 97% compatible with major brick brands. (We won't tell.)</p>
+            <a href="#products" class="hero-cta">🔨 Browse The Scrap</a>
+        </div>
+    </section>
+
+    <!-- WARNING BANNER -->
+    <div class="warning-banner">
+        <div class="warning-banner-inner">
+            ⚠ All products are technically scrap metal until assembled. Not responsible for lost items, missing socks, or confused grandparents. ⚠
+        </div>
+    </div>
+
+    <!-- MARQUEE -->
+    <div class="marquee-container">
+        <div class="marquee" id="marquee">
+            <span>Free Shipping On Orders Over $47.99</span>
+            <span>100% Recycled Steel</span>
+            <span>Now With 23% More Rust</span>
+            <span>Grandparent-Approved Parts</span>
+            <span>Tensile Strength: Heroic</span>
+            <span>Not Actually Made Of Steel</span>
+            <span>Metallic Building Elements</span>
+            <span>Free Shipping On Orders Over $47.99</span>
+            <span>100% Recycled Steel</span>
+            <span>Now With 23% More Rust</span>
+            <span>Grandparent-Approved Parts</span>
+            <span>Tensile Strength: Heroic</span>
+            <span>Not Actually Made Of Steel</span>
+            <span>Metallic Building Elements</span>
+        </div>
+    </div>
+
+    <!-- PRODUCTS -->
+    <section class="section" id="products">
+        <h2 class="section-title">Hot From The Scrapyard</h2>
+        <div class="section-divider"></div>
+        <p class="section-subtitle">Hand-selected metallic building elements, carefully salvaged from concerned seniors</p>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="product-badge badge-hot">🔥 Hot Scrap</span>
+                    ⚙️
+                </div>
+                <div class="product-info">
+                    <h3>Gears of Betrayal Set</h3>
+                    <p>473 precision-engineered steel gears, each one lovingly removed from a working machine. Comes with 1 wrench and an empty sense of fulfillment.</p>
+                    <div class="product-price">
+                        <span class="price">$47.99 <span class="original">$89.99</span></span>
+                        <button class="btn-add" onclick="addToCart('Gears of Betrayal Set')">+ Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="product-badge badge-new">New Scrap</span>
+                    🔧
+                </div>
+                <div class="product-info">
+                    <h3>Pipe Wrench Protocol</h3>
+                    <p>The definitive building tool for serious operators. This industrial-grade pipe wrench has been "borrowed" from at least three garage workshops.</p>
+                    <div class="product-price">
+                        <span class="price">$24.99</span>
+                        <button class="btn-add" onclick="addToCart('Pipe Wrench Protocol')">+ Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="product-badge badge-sale">-50%</span>
+                    🏗️
+                </div>
+                <div class="product-info">
+                    <h3>I-Beam Minifigure Pack</h3>
+                    <p>6 ultra-durable steel I-beams that double as minifigures. Each one can support 400 lbs or serve as a very serious character in your stop-motion film.</p>
+                    <div class="product-price">
+                        <span class="price">$19.99 <span class="original">$39.99</span></span>
+                        <button class="btn-add" onclick="addToCart('I-Beam Minifigure Pack')">+ Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    🛢️
+                </div>
+                <div class="product-info">
+                    <h3>Oil Drum Construction Kit</h3>
+                    <p>Three 55-gallon drums, one dream. Build a fortress, a robot, or a very convincing paperweight. Drums may have previously held motor oil.</p>
+                    <div class="product-price">
+                        <span class="price">$64.99</span>
+                        <button class="btn-add" onclick="addToCart('Oil Drum Construction Kit')">+ Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="product-badge badge-hot">🔥 Hot Scrap</span>
+                    🔩
+                </div>
+                <div class="product-info">
+                    <h3>Bolt Builder Mega Box</h3>
+                    <p>2,000 mixed bolts, nuts, and washers sorted in a rusty metal box. Sizes vary because we don't have time for that. 100% pulled from abandoned construction sites.</p>
+                    <div class="product-price">
+                        <span class="price">$34.99</span>
+                        <button class="btn-add" onclick="addToCart('Bolt Builder Mega Box')">+ Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="product-badge badge-new">New Scrap</span>
+                    🪛
+                </div>
+                <div class="product-info">
+                    <h3>Screwdriver Sorcerer Set</h3>
+                    <p>12 screwdrivers, all slightly different sizes, all taken from a "very trustworthy" neighbor's shed. Includes flathead, Phillips, and one that's definitely a screw.</p>
+                    <div class="product-price">
+                        <span class="price">$29.99</span>
+                        <button class="btn-add" onclick="addToCart('Screwdriver Sorcerer Set')">+ Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+        <div class="section" style="padding-top: 40px; padding-bottom: 40px;">
+            <h2 class="section-title">Why We Steel</h2>
+            <div class="section-divider"></div>
+            <div class="features-grid">
+                <div class="feature">
+                    <span class="feature-icon">🏭</span>
+                    <h3>Industrial Grade</h3>
+                    <p>Every piece is forged in the fires of moral ambiguity. Our tensile strength standards exceed all known regulatory requirements.</p>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">👴</span>
+                    <h3>Senior Sourced</h3>
+                    <p>Each component is carefully acquired from trusted elderly donors who "probably don't need this anymore." Ethically questionable since 2024.</p>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🔬</span>
+                    <h3>Lab Tested</h3>
+                    <p>Every batch is tested in our ISO-certified (not really) laboratory for optimal scrap quality, rust levels, and existential dread.</p>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🚚</span>
+                    <h3>Fast Delivery</h3>
+                    <p>We ship within 6-8 business weeks. Packages arrive in original rust packaging. Tracking provided if we feel like it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+        <h2 class="section-title">About The Operation</h2>
+        <div class="section-divider"></div>
+        <p class="section-subtitle">The story behind the steel</p>
+        <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+            <p style="color: var(--chrome); line-height: 1.8; font-size: 0.9rem; margin-bottom: 20px;">
+                West Steel From Old People began as a simple question: <em>"What if brick-and-minifig stores had a gritty, industrial cousin who worked at a scrapyard?"</em> The answer was obvious.
+            </p>
+            <p style="color: var(--chrome); line-height: 1.8; font-size: 0.9rem; margin-bottom: 20px;">
+                We provide premium metallic building elements for adults who want their creations to feel like they could support actual structural weight. Our parts are 97% compatible with major brick brands — the other 3% is just personality.
+            </p>
+            <p style="color: var(--chrome); line-height: 1.8; font-size: 0.9rem;">
+                Every purchase funds our charity: <strong style="color: var(--rust-light);">"Grandparents Gone Scrapy"</strong>, a 501(c)(3) organization dedicated to helping seniors understand why their toolboxes keep getting lighter.
+            </p>
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="section" id="reviews" style="background: linear-gradient(180deg, transparent, rgba(0,0,0,0.2), transparent);">
+        <h2 class="section-title">Verified Salvage Reviews</h2>
+        <div class="section-divider"></div>
+        <p class="section-subtitle">Real opinions from real victims — we mean, customers</p>
+
+        <div class="testimonials-grid">
+            <div class="testimonial">
+                <p>I bought the Gears of Betrayal set and honestly it changed my life. My HOA hasn't been the same since. The rust adds character.</p>
+                <div class="testimonial-author">— Mike R. <span class="testimonial-verified">✓ Verified Scrapper</span></div>
+            </div>
+            <div class="testimonial">
+                <p>My grandpa hasn't stopped crying since I "accidentally" left my shopping bag in his garage. 10/10 would betray again. The bolt quality is exceptional.</p>
+                <div class="testimonial-author">— Sarah T. <span class="testimonial-verified">✓ Verified Scrapper</span></div>
+            </div>
+            <div class="testimonial">
+                <p>These steel beams are SO well-made I'm convinced they were literally just sitting in someone's shed. Building the most aggressive treehouse ever. My neighbors are concerned.</p>
+                <div class="testimonial-author">— Dave K. <span class="testimonial-verified">✓ Verified Scrapper</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="section" id="contact">
+        <div class="newsletter">
+            <h2>📬 Join The Scrap Force</h2>
+            <p>Subscribe for exclusive deals, early access to new scrap drops, and monthly garage location updates.</p>
+            <form class="newsletter-form" onsubmit="subscribe(event)">
+                <input type="email" id="email" placeholder="your@email.com (we promise nada, it's a joke)" required>
+                <button type="submit">Steel</button>
+            </form>
+            <p id="subscribe-msg" style="margin-top: 15px; color: var(--lego-green); font-size: 0.85rem; display: none;"></p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <a href="#">All Products</a>
+                <a href="#">Gears & Cogs</a>
+                <a href="#">Bolts & Fasteners</a>
+                <a href="#">Pipe Collection</a>
+                <a href="#">Tool Sets</a>
+                <a href="#">Clearance Scrap</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="#">About Us</a>
+                <a href="#">Our Mission</a>
+                <a href="#">Careers (We're Hiring)</a>
+                <a href="#">Press Kit</a>
+                <a href="#">Legal Stuff (lol)</a>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <a href="#">FAQ</a>
+                <a href="#">Shipping Info</a>
+                <a href="#">Returns (Good Luck)</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Report Missing Tools</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal Disclaimer</h4>
+                <p>This is a parody website. We are not actually a business. No old people were harmed in the making of this website. No old people were actually robbed. Probably. The metallic aesthetic is 100% CSS and 0% actual steel.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 West Steel From Old People, LLC (Not Really). All rights reserved. Made with 🔧 and poor life choices.</p>
+            <p class="disclaimer">This is a parody website created for entertainment purposes only. Not affiliated with, endorsed by, or associated with any LEGO retailer, scrap yard, or confused grandparent. No actual steel was harmed in the creation of this site. All products, reviews, and business practices are fictional. Please check on your elderly relatives.</p>
+        </div>
+    </footer>
+
+    <!-- FLOATING CART -->
+    <div class="cart-float" id="cartFloat" onclick="showCart()">
+        🛒
+        <span class="cart-count" id="cartCount">0</span>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // Cart state
+        let cartItems = 0;
+
+        // Add to cart
+        function addToCart(productName) {
+            cartItems++;
+            document.getElementById('cartCount').textContent = cartItems;
+            
+            // Animate cart
+            const cart = document.getElementById('cartFloat');
+            cart.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                cart.style.transform = 'scale(1)';
+            }, 200);
+
+            showToast(`🔩 ${productName} added to scrap pile!`);
+        }
+
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Show cart
+        function showCart() {
+            if (cartItems === 0) {
+                showToast('🛒 Your scrap pile is empty!');
+            } else {
+                showToast(`🛒 You have ${cartItems} item${cartItems > 1 ? 's' : ''} in your scrap pile!`);
+            }
+        }
+
+        // Newsletter subscribe
+        function subscribe(e) {
+            e.preventDefault();
+            const email = document.getElementById('email');
+            const msg = document.getElementById('subscribe-msg');
+            
+            msg.style.display = 'block';
+            msg.style.color = 'var(--lego-green)';
+            msg.textContent = '✅ Thanks! We\'ll email you when we steal something new.';
+            email.value = '';
+            
+            showToast('📬 Welcome to the Scrap Force!');
+        }
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe product cards and testimonials
+        document.querySelectorAll('.product-card, .testimonial, .feature').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Easter egg: Konami code
+        let konamiCode = [];
+        const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        
+        document.addEventListener('keydown', (e) => {
+            konamiCode.push(e.key);
+            konamiCode = konamiCode.slice(-10);
+            
+            if (JSON.stringify(konamiCode) === JSON.stringify(konamiSequence)) {
+                document.body.style.filter = 'hue-rotate(180deg)';
+                showToast('🌈 You found the easter egg! Everything is now reversed!');
+                konamiCode = [];
+            }
+        });
+
+        // Console easter egg
+        console.log('%c⚙️ WEST STEEL FROM OLD PEOPLE ⚙️', 'font-size: 24px; font-weight: bold; color: #f0c040; background: #1a1a2e; padding: 10px; border-radius: 8px;');
+        console.log('%cYou found the scrapyard console! 👷', 'font-size: 14px; color: #c0c0d0;');
+        console.log('%cThis is a parody website. Please check on your elderly relatives. 👴👵', 'font-size: 12px; color: #7a7a9a;');
+    </script>
+
+</body>
+</html>
